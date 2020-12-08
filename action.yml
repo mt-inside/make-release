@@ -1,0 +1,21 @@
+name: Create Release
+description: Create a GH Release with a custom name and body
+
+inputs:
+  tag:
+    description: The name of the (annotated) tag with which to associate the Release. Also used as Release name.
+    required: true
+  body:
+    description: The new Release description
+    required: true
+  token:
+    description: A GitHub access token
+    required: true
+
+runs:
+  using: node12
+  main: dist/index.js
+
+branding:
+  icon: truck
+  color: green

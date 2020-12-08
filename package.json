@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "make-release",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mt-inside/make-release.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "release",
+    "update",
+    "description"
+  ],
+  "bugs": {
+    "url": "https://github.com/mt-inside/make-release/issues"
+  },
+  "homepage": "https://github.com/mt-inside/make-release#readme",
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js --ext .js",
+    "lint:fix": "yarn run lint --fix",
+    "lint:all": "yarn run lint ./",
+    "lint:all:fix": "yarn run lint:fix ./",
+    "build": "ncc build main.js --license licenses.txt"
+  },
+  "dependencies": {
+    "@actions/core": "1.2.6",
+    "@actions/github": "4.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.25.x",
+    "eslint": "7.15.x",
+    "eslint-config-prettier": "7.0.x",
+    "eslint-plugin-prettier": "3.2.x",
+    "prettier": "2.2.x"
+  }
+}
