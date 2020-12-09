@@ -7,7 +7,7 @@ inputs:
     required: true
   body:
     description: The new Release description
-    required: false
+    required: true
   token:
     description: A GitHub access token
     required: true

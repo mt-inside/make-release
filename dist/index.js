@@ -10,22 +10,21 @@ const github = __webpack_require__(5438);
 
 const token = core.getInput('token', { required: true });
 const tag = core.getInput('tag', { required: true });
-const body = core.getInput('body', { required: false }); // can push a 2nd tag on the same commit, leading to an "" body, which JS thinks is missing. Defaults to "" ?
+const body = core.getInput('body', { required: true }); // this can't tell the difference between not-passed and "". It's easy to generate a "" changelog, eg having no PRs in the applicable range. For now avoid this, TODO alter lerna to never emit ""
 
-//const [repoOwner, repoName] = process.env.GITHUB_REPOSITORY.split('/');
-const repoOwner = github.context.payload.repository.owner.login
-const repoName = github.context.payload.repository.name
+const repo = {
+  owner: github.context.payload.repository.owner.login,
+  name: github.context.payload.repository.name
+}
 
 const octokit = github.getOctokit(token);
 
 octokit.repos.createRelease({
-    //...context.repo,
-   owner: repoOwner,
-   repo: repoName,
-    tag_name: tag,
+  ...repo,
+  tag_name: tag,
   name: tag,
   body: body,
-    draft: true,
+  draft: true,
 });
 
 
