@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 const token = core.getInput('token', { required: true });
 const tag = core.getInput('tag', { required: true });
-const body = core.getInput('body', { required: true });
+const body = core.getInput('body', { required: false }); // can push a 2nd tag on the same commit, leading to an "" body, which JS thinks is missing. Defaults to "" ?
 
 //const [repoOwner, repoName] = process.env.GITHUB_REPOSITORY.split('/');
 
