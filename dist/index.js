@@ -14,7 +14,7 @@ const body = core.getInput('body', { required: true }); // this can't tell the d
 
 const repo = {
   owner: github.context.payload.repository.owner.login,
-  name: github.context.payload.repository.name
+  repo: github.context.payload.repository.name
 }
 
 const octokit = github.getOctokit(token);
