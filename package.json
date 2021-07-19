@@ -30,7 +30,7 @@
     "@actions/github": "4.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.25.x",
+    "@vercel/ncc": "0.29.x",
     "eslint": "7.15.x",
     "eslint-config-prettier": "7.0.x",
     "eslint-plugin-prettier": "3.3.x",
